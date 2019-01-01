@@ -1,0 +1,98 @@
+Lab 5 Log
+
+I first used emacs to create a file tr2b.c ("emacs tr2b.c").
+I then included "stdio.h", "string.h", and "stdlib.h".
+I wrote 3 error handling functions to check that from and to were the same length,
+from is a unique string, and that there are exactly 2 arguments.
+I then looped through the input and checked if it was the same as one of the from characters
+and replaced it with its corresponding to character.
+
+I implemented this program with getchar/putchar as well as read/write.
+
+I then used strace to comapre the system calls by tr2b and tr2u.
+I first tested with copying one file to another.
+I needed a 5,000,000 byte file so I used the following command to do so:
+dd if=/dev/zero of=testfile.txt bs=1M count=5
+
+I then ran the command
+strace -o trace.txt ./tr2b 12345 abcde < testfile.txt
+Using the command "cat trace.txt | wc -l" I saw that 190 system calls were made.
+I then ran the commad
+strace -o trace2.txt ./tr2u 12345 abcde < testfile.txt
+Using the command "cat trace2.txt | wc -l" I saw that tr2u made 10,485,786 calls.
+My tr2b program made significantly less system calls whereas the tr2u program made over 10 million system calls.
+
+For the second part (b), I copied the files to my terminal using the following commands:
+strace -o trace3.txt ./tr2b 12345 abcde < testfile.txt
+strace -o trace4.txt ./tr2u 12345 abcde < testfile.txt
+
+I then used the commands:
+cat trace3.txt | wc -l
+cat trace4.txt | wc -l
+and found that tr2b made 5230 total system calls and tr2u made 10,485,786 calls.
+Tr2b has many more calls this time while tr2u has the same number of system calls.
+Because tr2b is printing on the terminal screen, there are more calls than before.
+
+I then used the time command to compare the speed of both programs.
+
+First, I used:
+time ./tr2b 12345 abcde < testfile.txt > t1.txt
+These were the results:
+real  0m0.428s
+user  0m0.299s
+sys   0m0.005s
+
+I then ran the command:
+time ./tr2u 12345 abcde < testfile.txt > t2.txt
+These were the results:
+real  0m8.758s
+user  0m1.277s
+sys   0m7.390
+
+I then ran the command to test copying to terminal.
+time ./tr2b 12345 abcde < testfile.txt
+Results:
+real 0m0.672s
+user 0m0.486s
+sys  0m0.039s
+
+I then ran the command for tr2u.
+time ./tr2u 12345 abcde < testfile.txt
+Results:
+real	0m10.791s
+user	0m1.221s
+sys	0m9.560s
+
+We can see that the sys time for the tr2b program is much faster than tr2u.
+Getchar and putchar significantly increase the speed compared to read and write.
+Furthermore, the tr2b and the tr2u commands both took longer when copying to terminal instead of to another file.
+
+
+
+-------------SFROB LOG ----------------
+I first stored "*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4" into i\
+nput.txt.
+Using the command "time ./sfrobu < input.txt", I found the results to be the fo\
+llowing:
+real    0m0.032s
+user    0m0.001s
+sys     0m0.023s
+
+I then tested my python script, sfrobs, with the command "time ./sfrobs< input\
+.txt".
+Results:
+real    0m0.019s
+user    0m0.000s
+sys     0m0.000s
+
+I then tested my original program, sfrob, with the command "time ./sfrob < input.txt".
+Results:
+real	0m0.003s
+user	0m0.000s
+sys	0m0.001s
+
+
+In conclusion, sfrob takes the least amount of system call time because it uses getchar/putchar which requires less syscalls.
+Sfrobu has a higher system time due to the extra system calls made by read/write.
+Sfrobs had the fastest system times which was expected because it is a script that
+does not consist of many system calls like sfrobu and sfrob.

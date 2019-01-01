@@ -1,0 +1,79 @@
+In order to configure my team member's host, I had to take the following steps:
+I first connected my BeagleBone to my computer using the USB cable.
+I opened the BEAGLEBONE folder, went to START.htm, and then installed the required drivers.
+I then SSH'd into my BEAGLEBONE to configure the wifi connection and OpenSSH.
+
+First, I checked if I had openSSh with the following command:
+
+"dpkg --get-selections | grep openssh"
+
+In order to install openSSH, I did the following command:
+
+sudo apt-get install openssh-server
+
+I then partnered with a friend and needed to register him as a user into my BeagleBone.
+I first generated a key pair for the ssh connection.
+
+ssh-keygen
+
+When requested for a password, I pressed "Enter" to bypass setting a password.
+I then decided to be the server first and I created an account for a client.
+
+sudo useradd -d /home/shirly -m shirly
+
+I then created a password for the user shirly and set the password to "shirly".
+
+sudo passwd shirly
+
+I then needed to create a .ssh directory for shirly.
+I first entered into the new directory that I created.
+
+cd /home/shirly
+
+I then made a .ssh directory:
+
+sudo mkdir .ssh
+
+I then changed the ownership and permission on the .ssh directory.
+
+sudo chown -R shirly .ssh
+sudo chmod 700 .ssh
+
+I then needed to find my IP address for a client to connect to my server.
+I used the command "ifconfig" to find my IP address which was 172.21.19.8.
+
+She then ssh'd into my server using the user that I created for him and my IP address.
+
+
+Now, as the CLIENT, these were my steps:
+
+10.97.85.162 was the IP address of my partner.
+
+I didn't need to generate public and private keys because I had already done so for Server.
+
+I then copied my public key to the server to be authenticated.
+
+ssh-copy-id -i sam@10.97.85.160
+
+I added the private key to the authentication agent.
+
+ssh-add
+
+I then ssh'd into her server with the following commands:
+
+ssh sam@10.97.85.160
+ssh -X sam@10.97.85.160
+
+I then ran the following:
+
+$xterm
+$gedit
+$firefox
+
+I then did "ssh -Y sam@10.97.85.160".
+I ran xterm, gedit, and firefox again.
+
+These were all able to run.
+
+ssh -X and ssh -Y differ in behavior when I use portforwarding.
+-X and -Y handle authentication differently. -X requires authnetication whereas -Y uses fake authentication for port forwarding.

@@ -1,0 +1,24 @@
+Q1. The patch improves the performance of
+"ls"
+by making it work as intended and the
+"-aA"
+more intuitive if a is applied.
+Furthermore since the patch removes a check for an error,
+the performance of ls before the patch is slightly slower.
+
+Q2. If my company adopts this patched version of Coreutils
+instead of the default one, and I wanted behavior for -a
+to override -A, I would run into a problem. Furthermore,
+scripts that use ls -aA would now have to account
+for the change and must be modified.
+
+Q3. If randline.py is invoked on an empty file like /dev/null,
+we receive an error "list index out of range".
+It attempts to read a line of an empty file and
+attempts to access something that does not exist.
+
+Q4. When this script is invoked with Python3,
+I get the following error:
+"except IOError as (errno, strerror):".
+Python 2 exceptions are iterable whereas it can not
+be done in Python 3. Therefore the syntax is invalid.

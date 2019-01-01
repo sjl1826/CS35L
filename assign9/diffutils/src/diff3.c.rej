@@ -1,0 +1,67 @@
+--- src/diff3.c
++++ src/diff3.c
+@@ -316,9 +316,9 @@
+   if (argc - optind != 3)
+     {
+       if (argc - optind < 3)
+-	try_help ("missing operand after `%s'", argv[argc - 1]);
++	try_help ("missing operand after '%s'", argv[argc - 1]);
+       else
+-	try_help ("extra operand `%s'", argv[optind + 3]);
++	try_help ("extra operand '%s'", argv[optind + 3]);
+     }
+ 
+   file = &argv[optind];
+@@ -351,7 +351,7 @@
+ 	 file instead.  */
+       common = 3 - common;
+       if (STREQ (file[0], "-") || STREQ (file[common], "-"))
+-	fatal ("`-' specified for more than one input file");
++	fatal ("'-' specified for more than one input file");
+     }
+ 
+   mapping[0] = 0;
+@@ -412,7 +412,7 @@
+   if (reason_msgid)
+     error (0, 0, _(reason_msgid), operand);
+   error (EXIT_TROUBLE, 0,
+-	 _("Try `%s --help' for more information."), program_name);
++	 _("Try '%s --help' for more information."), program_name);
+   abort ();
+ }
+ 
+@@ -435,7 +435,7 @@
+   "",
+   N_("-m  --merge  Output merged file instead of ed script (default -A)."),
+   N_("-L LABEL  --label=LABEL  Use LABEL instead of file name."),
+-  N_("-i  Append `w' and `q' commands to ed scripts."),
++  N_("-i  Append 'w' and 'q' commands to ed scripts."),
+   N_("-a  --text  Treat all files as text."),
+   N_("--strip-trailing-cr  Strip trailing carriage return on input."),
+   N_("-T  --initial-tab  Make tabs line up by prepending a tab."),
+@@ -460,7 +460,7 @@
+     else
+       putchar ('\n');
+   printf ("\n%s\n%s\n",
+-	  _("If a FILE is `-', read standard input."),
++	  _("If a FILE is '-', read standard input."),
+ 	  _("Exit status is 0 if successful, 1 if conflicts, 2 if trouble."));
+   emit_bug_reporting_address ();
+ }
+@@ -1275,12 +1275,12 @@
+   if (EXIT_TROUBLE <= status)
+     error (EXIT_TROUBLE, werrno,
+ 	   _(status == 126
+-	     ? "subsidiary program `%s' could not be invoked"
++	     ? "subsidiary program '%s' could not be invoked"
+ 	     : status == 127
+-	     ? "subsidiary program `%s' not found"
++	     ? "subsidiary program '%s' not found"
+ 	     : status == INT_MAX
+-	     ? "subsidiary program `%s' failed"
+-	     : "subsidiary program `%s' failed (exit status %d)"),
++	     ? "subsidiary program '%s' failed"
++	     : "subsidiary program '%s' failed (exit status %d)"),
+ 	   diff_program, status);
+ 
+   return diff_result + total;

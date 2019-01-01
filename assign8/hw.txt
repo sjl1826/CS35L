@@ -1,0 +1,18 @@
+1. If other teams really had been observing all the bytes going across the network,
+my network is still secure. It is still secure because the messages are encrypted
+with the public key and are decrypted with the private key, which the other teams do not know.
+If I assumed the other teams had also tapped our keyboards after completing the
+client-server setup and had thereby obtained my team's keystrokes during later operation,
+it would still be secure because they would not know the private key.
+If I were booting off USB and the other teams temporarily had physical control of the USB,
+it would not be secure because if they had physical control of the USB temporarily,
+they could access the private key from the USB data.
+
+2. The gpg2 --verify command in the following instructions doesn't really verify that
+you personally created the file in question because it checks the signature once decrypted
+instead of checking the user that created the file.
+This could be a problem if the file is intercepted, changed, and sent without the
+authentication of knowing the original sender.
+
+This problem can be fixed by incorporating a database program into the transaction to
+monitor the transaction and check for the user who created the file and keep track of the file securely.

@@ -1,0 +1,120 @@
+Lab 4 Log
+I first downloaded the old stable version of coreutils.
+I used the command:
+"wget https://web.cs.ucla.edu/classes/fall18/cs35L/assign/coreutils-with-bug.tar.gz"
+
+I then used the command "tar xvzf coreutils-with-bug.tar.gz" to unzip the file.
+I then went into the directory of coreutils-with-bug and looked at INSTALL.
+
+I ran the command "./configure --prefix=/u/cs/ugrad/samuelle/assign4/coreutils-with-bug".
+I then ran "make" to build the program.
+However, I got this error:
+In file included from utimecmp.c:41:0:
+utimens.h:2:5: error: conflicting types for 'futimens'
+ int futimens (int, char const *, struct timespec const [2]);
+      ^
+      In file included from utimecmp.h:25:0,
+                       from utimecmp.c:25:
+		       /usr/include/sys/stat.h:374:12: note: previous declaration of 'futimens' was here
+		        extern int futimens (int __fd, __const struct timespec __times[2]) __THROW;
+
+The error describes conflicting types for "futimens".
+I went into the coreutils-with-bug directory.
+I then downloaded the patch using the commands:
+"wget https://web.cs.ucla.edu/classes/fall18/cs35L/assign/coreutils.diff"
+"cp coreutils.diff patch_file"
+"patch -p0 < patch_file"
+
+It patched the files and fixed the problems that I had when building the program.
+Renaming the patch avoided the conflicts and created a successful build.
+
+I then reproduced the bug to fix it by first creating a temporary directory.
+I used the command: "tmp=$(mktemp -d)".
+I changed my directory to tmp using "cd $tmp".
+I then ran the following commands given by the assignment:
+$ touch -d '1918-11-11 11:00 GMT' wwi-armistice
+$ touch now
+$ sleep 1
+$ touch now1
+$ TZ=UTC0 /u/cs/ugrad/samuelle/assign4/coreutils-with-bug/src/ls -lt --full-time wwi-armistice now now1
+
+I used the coreutil ls command to recreate the bug. However, it lists the files in the wrong order:
+wwi-armistice
+now1
+now
+
+I then went into the src folder of coreutils-with-bug to run gdb on ls for debugging purposes.
+I ran the command "gdb ./ls".
+I then looked for sort functions to place breakpoints in.
+I used "info functions" to look for functions and I ran the command
+"break sort_files"
+to go through the function.
+I then ran the command "run -lt --ful-time wwi-armistice now now1" after making them again in the GDB.
+Using "s" to go through sort_files, I found that func is set using rev_cmp_mtime and compare_mtime.
+I put a break point at compare_mtime and rev_cmp_mtime.
+I then ran "c" to go to the next breakpoint which was compare_mtime.
+I used "list compare_mtime" to observe the function.
+The output was the following:
+43  /* Return negative, zero, positive if A < B, A == B, A > B, respectively.
+44   	    Assume the nanosecond components are in range, or close to it.  */
+45   static inline int
+46	 timespec_cmp (struct timespec a, struct timespec b)
+47	       {
+48	int diff = a.tv_sec - b.tv_sec;
+49  	return diff ? diff : a.tv_nsec - b.tv_nsec;
+50  }
+51
+52	# if ! HAVE_DECL_NANOSLEEP
+
+It obtains diff by subtracting the two variables' tv_sec.
+I know that this subtraction could cause errors with overflow.
+So, I changed the function to not use subtraction to see if it would fix the problem.
+
+To fix the patch, I then went to the lib directory of coreutils-with-bug.
+I copied timespec.h using the commmand "cp timespec.h timspectemp.h".
+I then edited timespectemp.h to edit timespec_cmp to be the following:
+if (a.tv_sec > b.tv_sec) {
+      return 1;
+        } else if (a.tv_sec < b.tv_sec) {
+	      return -1;
+	          } else {
+		      return 0;
+		        }
+I then went back to the coreutils-with-bug directory and ran the command:
+diff -u lib/timespec.h lib/timespectemp.h > lab4.diff
+to create the patch file.
+I then ran the command "patch -p0 < lab4.diff" to apply the patch.
+I also ran "make" to compile the program before testing again.
+
+I did the following commands to test if the patch worked:
+$ tmp=$(mktemp -d)
+$ cd $tmp
+$ touch -d '1918-11-11 11:00 GMT' wwi-armistice
+$ touch now
+$ sleep 1
+$ touch now1
+$ TZ=UTC0 /u/cs/ugrad/samuelle/assign4/coreutils-with-bug/src/ls -lt --full-time wwi-armistice now now1
+
+This was the output:
+-rw-r--r-- 1 samuelle csugrad 0 2018-11-04 05:31:55.091270205 +0000 now1
+-rw-r--r-- 1 samuelle csugrad 0 2018-11-04 05:31:48.633034352 +0000 now
+-rw-r--r-- 1 samuelle csugrad 0 1918-11-11 11:00:00.000000000 +0000 wwi-armistice
+
+The patch worked!
+
+I went to my home directory to see if I could reproduce the bug there as well.
+These were my following commands:
+touch -d '1918-11-11 11:00 GMT' wwi-armistice
+touch now
+sleep 1
+touch now1
+TZ=UTC0 ls -lt --full-time wwi-armistice now now1
+
+This was the output:
+-rw-r--r-- 1 samuelle csugrad 0 2054-12-17 17:28:16.000000000 +0000 wwi-armistice
+-rw-r--r-- 1 samuelle csugrad 0 2018-11-04 05:44:03.263140000 +0000 now1
+-rw-r--r-- 1 samuelle csugrad 0 2018-11-04 05:43:58.507301000 +0000 now
+
+SEASnet does not do any better. It has the problem as well and lists the files in the wrong order.
+Furthermore, I observed that wwi-armistice was set to 1918 but says '2054' instead.
+This is different and is a big issue!

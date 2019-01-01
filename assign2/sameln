@@ -1,0 +1,58 @@
+#!/bin/bash
+
+hiddenFiles=$(ls -a "$1" | grep "^\." | sort)
+files=$(ls "$1" | sort)
+IFS=$'\n'
+
+declare -a finalArr
+arrSize=0
+
+for file in $hiddenFiles
+do
+    if [ ! -L "$1/$file" ]
+    then
+	if [ -f "$1/$file" ]
+	then
+	    finalArr[$arrSize]="$1/$file"
+	    let arrSize=arrSize+1
+	fi
+    fi
+done
+
+for file in $files
+do
+    if [ ! -L "$1/$file" ]
+    then
+	if [ -f "$1/$file" ]
+	then
+	    finalArr[$arrSize]="$1/$file"
+	    let arrSize=arrSize+1
+	fi
+    fi
+done
+
+i=0
+for file in "${finalArr[@]}"
+do
+    ((i+=1))
+    j=0
+	for otherFiles in "${finalArr[@]}"
+   	do
+	    ((j+=1))
+	    if ((j<=i)); then
+		continue
+	    fi
+	    if test ! -r "$file" 
+	    then
+		continue
+	    fi
+	    if test ! -r "$otherFiles"
+	    then
+		continue
+	    fi	    
+                if cmp -s "$file" "$otherFiles"
+	        then
+       	       	    ln -f $file $otherFiles
+       		fi
+	done
+done

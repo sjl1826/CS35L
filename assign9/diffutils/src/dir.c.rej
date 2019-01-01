@@ -1,0 +1,11 @@
+--- src/dir.c
++++ src/dir.c
+@@ -154,7 +154,7 @@
+ 	r = strcoll (name1, name2);
+       if (errno)
+ 	{
+-	  error (0, errno, _("cannot compare file names `%s' and `%s'"),
++	  error (0, errno, _("cannot compare file names '%s' and '%s'"),
+ 		 name1, name2);
+ 	  longjmp (failed_locale_specific_sorting, 1);
+ 	}

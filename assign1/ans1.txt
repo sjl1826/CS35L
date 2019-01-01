@@ -1,0 +1,31 @@
+1. The command "man -k" prints all the commands that have a specific word in their man page.
+
+2. Shell Commands that I used: "which cp", "which mv"
+   The cp program is located in /usr/local/cs/bin/cp.
+   The mv program is located in /usr/local/cs/bin/mv.
+   
+3. Using the command "find /usr/bin -name "?r"", I was able to find the executal programs that are exactly two characters long and end in r. One of the executable programs is "pr". It filters text files into pages and then prints the files in a standard, formatted output. Another executable program is "ar". It creates and maintains library archives so that new files can be added and existing files can be deleted. The last executable program is "tr". It copies the input to the output and uses substitution or deletion of characters to translate them.
+
+4. Using "readlink /usr/bin/emacs", I was able to find that the file that is actually executed is /etc/alternatives/emacs.
+
+5. The version number of the /usr/bin/gcc program is 4.8.5. The version number of the plain gcc program is 8.2.0. They are in different directories that hold different versions of the gcc program.
+
+6. The symbolic mode "u+sx" means that it sets the user's permission as executable, meaning the user is able to execute the file. The symbolic mode "o-w" removes write permissions from other users.
+
+7. First, I used "man find" to look for filters and then I used "man mtime" in order to learn to use the shell command. I then used the shell command "find /usr/local/cs -type d -mtime -28" to find all directories under the directory /usr/local/cs using "ctime" in the form of days per month in order to find those that had been modified in the last four weeks.
+
+8. I used the command "which find" to get the directory that find is located in. I then used "cd /usr/bin" to change into the directory. After that, I used "ls -l | grep ^l | wc" to find out how many of the files are symbolic links. There are 279 files that are symbolic links in the same directory as find.
+
+9. The oldest regular file in the /usr/lib64 directory is "librom1394.so.0.3.0". I used "man ls" to look at my options for finding the file. I then used "cd /usr/lib64" to get into the directory and then I used "ls -t -1" to sort all the files by modification time (newest first) and then list each of the files. After executing the command, I looked at the bottom of the list to find the last modified file.
+
+10. I used "man locale" to observe the manual and then used the command "man 7 locale" and found out that the locale command gets its data from the environment varibles that control the locale such as LC_ADDRESS, LC_COLLATE, etc.
+
+11. In emacs I used "C-h a" and then typed in "downcase" to find the commands that have the word "downcase" in them. These are the commands - downcase-dwim, downcase-region, downcase-word.
+
+12. The Emacs keystroke "C-M-r" implements a reverse regular expression search. The "C-M-v" command scrolls the other window. I simply executed the commands "C-M-r" and "C-M-v" to discover what they do.
+
+13. The "C-g" command aborts the current command or search. I used "C-g" and the console outputted "Quit", so I attempted executing a search and then using the "C-g" command to find out that it aborts the search.
+
+14. I used "C-h f yank" to find out what the Emacs yank function does. It reinserts the last stretch of killed text, in other words it pastes the text that was most recently "cut". You can easily invoke it by using the keystrokes "C-y".
+
+15. The ls -l command's output doesn't contain both the current and parent directory. The emacs dired command, however, outputs all the files in both the current and parent directory.

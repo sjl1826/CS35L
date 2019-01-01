@@ -1,0 +1,17 @@
+#!/bin/bash
+
+grep '<td>.\{1,\}<\/td>' | \
+sed '1~2d' | \
+sed 's/<[^>]*>//g' | \
+sed "s/^ *//g" | \
+tr ' ' '\n' | \
+tr ',' '\n' | \
+tr '`' "\'" | \
+tr [:upper:] [:lower:] | \
+grep "^[pk\' mnwlhaeiou]\{1,\}$" | \
+sort -u
+
+#take everything between the tags with more than 1 character
+#remove every other line starting from the first line
+#substitute everything that has <^ or <> and ends with > with nothing
+#substitute 

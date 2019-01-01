@@ -1,0 +1,50 @@
+I first checked that I have the correct version of sort by the command-
+/usr/local/cs/bin/sort --version
+-and then comparing this version (8.24) to the version outputted by-
+sort --version
+-which was also 8.24.
+
+I then ran the command
+od -An -t fF -N 67108864 < /dev/urandom | tr -s ' ' '\n' | sed '1{/^$/d}' > testdata.txt
+
+I got the number of bytes (67108864) from taking 2 to the 24th power and multiplying by 4
+to account for the fact that they're 4 bytes each.
+
+I then ran the command time -p sort -g testdata.txt > /dev/null
+Output:
+real 38.52
+user 195.29
+sys 0.59
+
+I then ran the command time -p sort -g testdata.txt --parallel=1 > /dev/null
+Output:
+real 170.91
+user 167.75
+sys 0.37
+
+I then ran the command time -p sort -g testdata.txt --parallel=2 > /dev/null
+Output:
+real 90.06
+user 170.94
+sys 0.38
+
+I then ran the command time -p sort -g testdata.txt --parallel=4 > /dev/null
+Output:
+real 51.45
+user 171.56
+sys 0.47
+
+I then ran the command time -p sort -g testdata.txt --parallel=8 > /dev/null
+Output:
+real 33.41
+user 180.97
+sys 0.60
+
+By looking at the output data from each of the time commands, we can see that the user time
+is about the same, ranging from about 170-195. The real time has a huge difference, ranging
+from as low as 33 to as high as 170. The real time decreases with the more threads used
+which implies that the more threads are increasing the speed of the sort.
+However, the sort without setting the threads has nearly the same time as parallel with 8
+threads which shows that sort may already be parallelized.
+The system time increases with the number of threads, which may be a result of calling
+upon more threads, which results in more time.

@@ -1,0 +1,19 @@
+--- src/util.c
++++ src/util.c
+@@ -298,12 +298,12 @@
+       if (status)
+ 	error (EXIT_TROUBLE, werrno,
+ 	       _(status == 126
+-		 ? "subsidiary program `%s' could not be invoked"
++		 ? "subsidiary program '%s' could not be invoked"
+ 		 : status == 127
+-		 ? "subsidiary program `%s' not found"
++		 ? "subsidiary program '%s' not found"
+ 		 : status == INT_MAX
+-		 ? "subsidiary program `%s' failed"
+-		 : "subsidiary program `%s' failed (exit status %d)"),
++		 ? "subsidiary program '%s' failed"
++		 : "subsidiary program '%s' failed (exit status %d)"),
+ 	       pr_program, status);
+     }
+ 

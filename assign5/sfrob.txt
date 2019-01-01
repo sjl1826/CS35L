@@ -1,0 +1,16 @@
+I first stored "*~BO *{_CIA *hXE]D *LER #@_GZY #E\\OX #^BO #FKPS #NEM\4" into input.txt.
+Using the command "time ./sfrobu < input.txt", I found the results to be the following:
+real  	0m0.023s
+user	0m0.000s
+sys	0m0.001s
+
+I then tested my python script, sfrobs, with the command "time ./sfrobs < input.txt".
+Results:
+real	0m0.019s
+user	0m0.001s
+sys	0m0.010s
+
+
+In conclusion, sfrob takes the least amount of time because it uses getchar/putchar which requires less syscalls.
+Sfrobu has a higher system time due to the extra system calls made by read/write.
+Sfrobs had the fastest system times which was expected because it is a script that does not consist of many system calls like sfrobu and sfrob.

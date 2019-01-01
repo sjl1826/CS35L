@@ -1,0 +1,88 @@
+Lab 3 Log
+
+I first downloaded the source file using the command:
+"wget ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.29.tar.xz".
+
+I then used the command:
+"tar -xJf coreutils-8.29.tar.xz"
+to extract the contents of the .xz file.
+
+I used the command:
+"wget ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.29.tar.xz.sig"
+to get the signature.
+
+I used the command:
+"wget https://ftp.gnu.org/gnu/gnu-keyring.gpg"
+to grab the keyring.
+
+
+Afterwards, I ran the command:
+"gpg --verify --keyring ./gnu-keyring.gpg coreutils-8.29.tar.xz.sig".
+I got this error:
+"This key is not certified with a trusted signature!".
+I believe that I received this error because my key needs to be certified
+in order to pass the warning.
+
+I then went into the coreutils-8.29 directory.
+I used the command:
+"emacs INSTALL"
+to look at how to install the package.
+
+I ran the commands:
+./configure
+make
+make install
+
+The install didn't work.
+I got an error attempting to enter the directory.
+It said that the install failed.
+I then went into INSTALL to check if I had made any errors.
+I used a keyword to retry the install in the correct directory.
+./configure --prefix=/u/cs/ugrad/samuelle/assign3/coreutils-8.29
+make
+make install
+
+The install worked after setting the prefix to my directory.
+I ran the command:
+coreutils-8.29/bin/ls -aA
+..        cpfactor   ls       pathchk   sha224sum  tac       unlink
+[         csplit     false    md5sum   pinky     sha256sum  tail      uptime
+b2sum     cut        fmt      mkdir    pr        sha384sum  tee       users
+base32    date       fold     mkfifo   printenv  sha512sum  test      vdir
+base64    dd         groups   mknod    printf    shred      timeout   wc
+basename  df         head     mktemp   ptx       shuf       touch     who
+cat       dir        hostid   mv       pwd       sleep      tr        whoami
+chcon     dircolors  id       nice     readlink  sort       true      yes
+chgrp     dirname    install  nl       realpath  split      truncate
+chmod     du         join     nohup    rm        stat       tsort
+chown     echo       kill     nproc    rmdir     stdbuf     tty
+chroot    env        link     numfmt   runcon    stty       uname
+cksum     expand     ln       od       seq       sum        unexpand
+which reproduced the bug and showed a "." and a ".." that didn't belong.
+I then copied the patch from Bug#30963 Message #10.
+I pasted the patch into my file patch.diff.
+I ran the command:
+patch -p1 < patch.dff
+and it patched up the bug.
+I then ran the command "make" and tested "test/coreutils-8.29/bin/ls -aA".
+This was my output:
+[         csplit     false    md5sum   pinky      sha256sum  tail      uptime
+b2sum     cut        fmt      mkdir    pr         sha384sum  tee       users
+base32    date       fold     mkfifo   printenv   sha512sum  test      vdir
+base64    dd         groups   mknod    printf     shred      timeout   wc
+basename  df         head     mktemp   ptx        shuf       touch     who
+cat       dir        hostid   mv       pwd        sleep      tr        whoami
+chcon     dircolors  id       nice     readlink   sort       true      yes
+chgrp     dirname    install  nl       realpath   split      truncate
+chmod     du         join     nohup    rm         stat       tsort
+chown     echo       kill     nproc    rmdir      stdbuf     tty
+chroot    env        link     numfmt   runcon     stty       uname
+cksum     expand     ln       od       seq        sum        unexpand
+comm      expr       logname  paste    sha1sum    sync       uniq
+cp        factor     ls       pathchk  sha224sum  tac        unlink
+I had to use the command:
+autoreconf --force --install
+to reconfigure for the make
+and then "make" without re-installing make.
+
+

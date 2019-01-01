@@ -1,0 +1,19 @@
+--- exer1.html	2018-10-05 18:23:05.185928000 -0700
++++ exer3.html	2018-10-06 10:24:54.894016000 -0700
+@@ -15,7 +15,7 @@
+ 
+ <h2>Laboratory: Linux and Emacs scavenger hunt</h2>
+ 
+-<!-- diff，在UNIX系統上的一個工具程式，它可以比較兩個檔案之間的不同。通常它被用來比較同一個檔案，在不同版本間的差異。它可以產生一個擴展名為.diff或.patch的檔案，這個檔案可以被另一個工具程式patch來使用。-->
++
+ 
+ <p>Instructions: Do this assignment on the SEASnet GNU/Linux servers
+ <samp>lnxsrv06</samp>, <samp>lnxsrv07</samp>,
+@@ -122,6 +122,7 @@
+ List any shell or Emacs commands you used to answer this question.</li>
+ </ol>
+ 
++
+ <h2>Homework: Learning to use Emacs</h2>
+ 
+ <!-- DELETE-ME DELETE-ME DELETE-ME -->

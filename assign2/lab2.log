@@ -1,0 +1,168 @@
+I first logged into seasnet,
+and then used the command 'locale' to
+check if I'm in the standard C locale.
+I was not so I ran the command
+'export LC_ALL='C''
+to make sure the locale is the correct one.
+
+I then sorted the contents of the file
+/usr/share/dict/words and
+put the result into a file named words using
+'sort /usr/share/dict/words >words'.
+
+Then I used the command
+'curl
+"https://web.cs.ucla.edu/classes/fall18/cs35L/assign/assign2.html"
+>>assign2.txt'
+to store the HTML in the assignment into a file named assign2.html.
+
+I then ran the command
+'tr -c 'A-Za-z' '[\n*]' < assign2.txt'.
+It outputted each of the words on a separate line,
+all separated by a varying number of new lines.
+Because tr -c takes the complement of the characters
+which is the non-characters and replaces them with a new line.
+
+I ran the command
+'tr -cs 'A-Za-z' '[\n*]' < assign2.txt'.
+This command outputted each of the words on a new line.
+After the output using the tr -c command,
+the -s removes the newline characters that were
+empty from the non-characters in the file.
+
+I ran the command
+'tr -cs 'A-Za-z' '[\n*]' < assign2.txt | sort'.
+This command's output not only printed every word on a new line
+with no empty lines in between,
+but it was printed in sorted order.
+
+I ran the command
+'tr -cs 'A-Za-z' '[\n*]' < assign2.txt | sort -u'.
+This command listed each of the words on a new line
+with no empty lines in between in sorted order with no duplicate words.
+
+I ran the command
+'tr -cs 'A-Za-z' '[\n*]' < assign2.txt | sort -u | comm - words'.
+This command compared the two sorted files line by line
+and outputted 3 different columns.
+One column consisted of words on separate lines
+that were unique to assign2.txt,
+the second column consisted of words on separate lines
+that were unique to words,
+and the third column listed words that were common in both files.
+
+I ran the command
+'tr -cs 'A-Za-z' '[\n*]' < assign2.txt | sort -u | comm -23 - words'.
+This command compared the two sorted files line by line,
+but with the option -23,
+it eliminated two of the columns
+and only outputted the unique words to the first file, assign2.txt.
+
+
+I first used the command
+"wget "http://mauimapp.com/moolelo/hwnwdseng.htm""
+to grab a copy of the Hawaiian web page.
+I used the command 'grep '<td>.\{1,\}<\/td>''
+to extract all the text from the html that
+contained Hawaiian and English words.
+
+Because Hawaiian words were listed on every other line,
+I used the command
+'sed '1~2d''
+to delete the English words.
+I then used the command
+'sed 's/<[^>]*>//g''
+to remove all the html tags, leaving the Hawaiian words.
+I then used the command
+'sed "s/^\s*//g"'
+to remove the leading spaces of each line.
+Using the command
+"tr ' ' '\n'",
+I replaced every space with a new line to separate each of the words.
+Using the command
+"tr ',' '\n'",
+I replaced each of the commas with a new line to separate any words
+that were on the same line with a comma.
+I then used the command
+"tr '`' "\'""
+to replace all of the Hawaiian 'okina's with the ASCII apostrophe.
+I then converted all of the uppercase letters to
+lowercase letters using
+"tr [:upper:] [:lower:]".
+After that, I used
+"grep "^[pk\' mnwlhaeiou]\{1,\}$""
+to remove any lines that do not contain any of the Hawaiian characters.
+I then used
+"sort -u"
+to sort the remaining words.
+
+I then used
+"chmod u+x buildwords"
+to change the permissions and ran the script to test that it works.
+
+My buildwords script:
+
+#!/bin/bash
+
+grep '<td>.\{1,\}<\/td>' | \
+sed '1~2d' | \
+sed 's/<[^>]*>//g' | \
+sed "s/^ *//g" | \
+tr ' ' '\n' | \
+tr ',' '\n' | \
+tr '`' "\'" | \
+tr [:upper:] [:lower:] | \
+grep "^[pk\' mnwlhaeiou]\{1,\}$" | \
+sort -u
+
+I modified the last shell command by
+replacing the dictionary with Hawaiian dictionary and
+translating all the upper case input to lower-case.
+This was my result:
+"tr -cs 'A-Za-z' '[\n*]' < assign2.txt | 
+tr [:upper:] [:lower:] | 
+sort -u | comm -23 - hwords".
+
+I used
+"wc -w"
+with my command to get
+"tr -cs 'A-Za-z' '[\n*]' < assign2.txt |
+ tr [:upper:] [:lower:] | 
+sort -u | 
+comm -23 - hwords | 
+wc -w"
+which resultied in showing me that there are 405 mispelled Hawaiian words.
+I then ran
+"tr -cs 'A-Za-z' '[\n*]' < assign2.txt | 
+tr [:upper:] [:lower:] | 
+sort -u | 
+comm -23 - words | 
+wc -w"
+and found that there are 38 mispelled English words.
+
+I used the commands
+"cat assign2.html |
+ tr -cs 'A-Za-z' '[\n*]' |
+ tr '[:upper:]' '[:lower:]' | 
+sort -u | 
+comm -23 - words > english"
+and
+"cat assign2.html | 
+tr -cs 'A-Za-z' '[\n*]' | 
+tr '[:upper:]' '[:lower:]' | 
+sort -u | 
+comm -23 - hwords > hawaii"
+to be able to compare both of the mispelled words in English
+but not as Hawaiian and vice versa.
+I then ran the command
+"comm english hawaii"
+and found the words that are mispelled as English
+but not as Hawaiian as well as the words mispelled as Hawaiian
+but not as English.
+
+Words that were mispelled as English but not as Hawaiian:
+- halau, lau, wiki
+
+Words that were mispelled as Hawaiian but not as English:
+(I've listed a few examples)
+- with, word, words, work, working, worry, write

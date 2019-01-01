@@ -1,0 +1,82 @@
+I first went into the diffutils directory and checked out version 3.0 and made a branch.
+
+git checkout v3.0 -b quote
+
+I then installed my change into this new branch by running the patch command.
+
+patch -p1 < ~/assign9/quote-3.0-patch.txt
+
+OUTPUT:
+patching file src/cmp.c
+patching file src/diff.c
+patching file src/diff3.c
+patching file src/dir.c
+patching file src/sdiff.c
+patching file src/util.c
+
+
+I then used the emacs function to create a changelog.
+        * src/cmp.c: changed the back ticks to apostrophes
+        * src/util.c: changed the back ticks to apostrophes
+        * src/dir.c: changed the back ticks to apostrophes
+        * src/sdiff.c: changed the back ticks to apostrophes
+        * src/diff3.c: changed the back ticks to apostrophes
+        * src/diff.c: changed the back ticks to apostrophes
+
+I then used the following commands to add the ChangeLog and commit it.
+
+git add .
+git commit -F ChangeLog
+
+I then used the following command to generate a file formatted-patch.txt.
+
+git format-patch -1 --stdout > formatted-patch.txt
+
+I then sent my formatted-patch.txt to Shirly, my partner.
+
+I switched to a different branch, partner.
+
+git checkout v3.0 -b partner
+
+I then did git am < ~/assign9/partner-patch.txt
+OUTPUT:
+Applying: 2018-12-04 Shirly Fang <shirly@lnxsrv06.seas.ucla.edu>
+
+To verify that my ChangeLog entry works, I ran the following commands.
+
+./bootstrap
+./configure
+make
+make check
+make distdir
+
+I then went back to my branch and checked to see if my ChangeLog worked.
+
+cd diffutils*
+emacs ChangeLog
+
+It has all of my partners ChangeLog commit that I just added, showing that it worked.
+
+I then went into the GNU Emacs git repository's master branch.
+
+cd ~eggert/src/gnu/emacs
+
+Then I ran "gitk".
+
+I got the following error:
+Application initialization failed: no display name and no $DISPLAY environment variable
+Error in startup script: no display name and no $DISPLAY environment variable
+    while executing
+"load /usr/lib64/tk8.5/../libtk8.5.so Tk"
+    ("package ifneeded Tk 8.5.7" script)
+    invoked from within
+"package require Tk"
+    (file "/usr/local/cs/bin/gitk" line 10)
+
+I had to reinstall XQuartz and then it worked. I found the newest merge and took a screenshot.
+
+I exited and then did the following commands:
+
+ssh -Y samuelle@lnxsrv06.seas.ucla.edu
+cd ~eggert/src/gnu/emacs
+gitk

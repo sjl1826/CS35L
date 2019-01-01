@@ -1,0 +1,6 @@
+The screenshot shows 2 different windows.
+The top window consists of the history and the different commits and merges.
+It also show sthe authors of those commits and the dates on the right of the committs.
+There is also a window on the bottom that shows the changes made in a commit.
+It is more detailed with the ability to search the commit.
+It also features a comments sectioh on the right which has files that have been modified in the commit.

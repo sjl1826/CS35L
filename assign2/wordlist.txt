@@ -1,0 +1,424 @@
+    <td>Adopt</td>
+    <td>H<u>a</u>nai</td>
+    <td>Affection</td>
+    <td>Pumehana</td>
+    <td>Afternoon</td>
+    <td>Auinal<u>a</u></td>
+    <td>And</td>
+    <td>Ame</td>
+    <td>Answer</td>
+    <td>Pane</td>
+    <td>Apprentice</td>
+    <td>Kako`o</td>
+    <td>April</td>
+    <td>`Apelila</td>
+    <td>August</td>
+    <td>`Aukake</td>
+    <td>Aunt</td>
+    <td>`Anak<u>e</u></td>
+    <td>Autumn</td>
+    <td>H<u>a</u>`ule lau</td>
+    <td>Avocado</td>
+    <td>Pea</td>
+    <td>Away from me <small>(directional)</small></td>
+    <td>Aku</td>
+    <td>Bad</td>
+    <td>Maika`i`ole</td>
+    <td>Beach</td>
+    <td>Kahakai</td>
+    <td>Beautiful</td>
+    <td>Nani</td>
+    <td>Begin</td>
+    <td>Pa</td>
+    <td>Big, large</td>
+    <td>Nui</td>
+    <td>Birth</td>
+    <td>H<u>a</u>nau</td>
+    <td>Birthday</td>
+    <td>L<u>a</u> h<u>a</u>nau</td>
+    <td>Bone(s)</td>
+    <td>Iwi</td>
+    <td>Breadfruit</td>
+    <td>`Ulu</td>
+    <td>Brother</td>
+    <td>Kaikua`ana</td>
+    <td>Canoe</td>
+    <td>Wa`a</td>
+    <td>Candlenut tree</td>
+    <td>Kukui</td>
+    <td>Celebration</td>
+    <td>Ho`olaule`a </td>
+    <td>Chant, song</td>
+    <td>Mele, oli</td>
+    <td>Chicken</td>
+    <td>Moa</td>
+    <td>Chief</td>
+    <td>Ali`i</td>
+    <td>Child</td>
+    <td>Keiki</td>
+    <td>Cliff</td>
+    <td>Pali</td>
+    <td>Coconut tree</td>
+    <td>Kumu nui</td>
+    <td>Colleague</td>
+    <td>Makamaka</td>
+    <td>Come</td>
+    <td>Hele mai</td>
+    <td>Cousin</td>
+    <td>Hoah<u>a</u>nau</td>
+    <td>Cowboy</td>
+    <td>Paniolo</td>
+    <td>Dance</td>
+    <td>Hula</td>
+    <td>Daughter</td>
+    <td>Kaikamahine</td>
+    <td>Day</td>
+    <td>L<u>a</u></td>
+    <td>Dead</td>
+    <td>Make</td>
+    <td>December</td>
+    <td>K<u>e</u>k<u>e</u>mapa</td>
+    <td>Deity</td>
+    <td>Ku</td>
+    <td>Delicious</td>
+    <td>`Ono</td>
+    <td>Desire</td>
+    <td>Makemake</td>
+    <td>Dog</td>
+    <td>`<u>I</u>lio</td>
+    <td>Dolphin</td>
+    <td>Nai`a</td>
+    <td>Duck</td>
+    <td>Kak<u>a</u></td>
+    <td>Earth</td>
+    <td>Papa</td>
+    <td>East</td>
+    <td>Hikina</td>
+    <td>Eat</td>
+    <td>Ai</td>
+    <td>Effeminate</td>
+    <td>Mahinahina</td>
+    <td>Elder</td>
+    <td>Kupuna</td>
+    <td>Evening</td>
+    <td>Ahiahi</td>
+    <td>Excellence</td>
+    <td>Pono</td>
+    <td>Expert</td>
+    <td>Olohe</td>
+    <td>Eye glasses</td>
+    <td>Maka aniani</td>
+    <td>Eyes</td>
+    <td>Maka</td>
+    <td>Family</td>
+    <td>`Ohana</td>
+    <td>Father</td>
+    <td>Makua k<u>a</u>ne</td>
+    <td>February</td>
+    <td>Pepeluali</td>
+    <td>Finished</td>
+    <td>Pau</td>
+    <td>Fire</td>
+    <td>Ahi</td>
+    <td>Fish (noun)</td>
+    <td>I`a</td>
+    <td>Flea</td>
+    <td>`Uku</td>
+    <td>Flower</td>
+    <td>Pua</td>
+    <td>Food</td>
+    <td>Kaukau</td>
+    <td>Friday</td>
+    <td>P<u>o</u>`alima</td>
+    <td>Friend</td>
+    <td>Hoaloha</td>
+    <td>Gift</td>
+    <td>Makana</td>
+    <td>Glass</td>
+    <td>Aniani</td>
+    <td>Go</td>
+    <td>Hele aku</td>
+    <td>God</td>
+    <td>Ke Akua</td>
+    <td>Gold, golden</td>
+    <td>Kula</td>
+    <td>Good</td>
+    <td>Maika`i</td>
+    <td>Goose</td>
+    <td>N<u>e</u>n<u>e</u></td>
+    <td>Grandfather, grandmother</td>
+    <td>Kupuna kane, kupuna wahine</td>
+    <td>Happy</td>
+    <td>Hau`oli</td>
+    <td>Heaven</td>
+    <td>Lani</td>
+    <td>Help</td>
+    <td>K<u>o</u>kua</td>
+    <td>Hibiscus</td>
+    <td>Aloalo</td>
+    <td>Hill</td>
+    <td>Pu`u</td>
+    <td>Hole <font size="1">(with a bottom, crater)</font></td>
+    <td>Lua</td>
+    <td>Hole <font size="1">(without a bottom, perforation)</font></td>
+    <td>Puka</td>
+    <td>Holiday</td>
+    <td>L<u>a</u>nui</td>
+    <td>Hospitality</td>
+    <td>Ho`okipa</td>
+    <td>Hour</td>
+    <td>Hola</td>
+    <td>House</td>
+    <td>Hale</td>
+    <td>How</td>
+    <td>Pehea</td>
+    <td>Humbleness</td>
+    <td>Ha`aha`a</td>
+    <td>Husband</td>
+    <td>Pilikua</td>
+    <td>I</td>
+    <td>Au</td>
+    <td>Image, carving</td>
+    <td>Ki</td>
+    <td>Infant</td>
+    <td>Kamaiki</td>
+    <td>Inland</td>
+    <td>Mau ka</td>
+    <td>Island</td>
+    <td>Moku</td>
+    <td>January</td>
+    <td>Ianuali</td>
+    <td>June</td>
+    <td>Iune</td>
+    <td>July</td>
+    <td>Iulai</td>
+    <td>Land that feeds</td>
+    <td>`Aina</td>
+    <td>Land that is worthless</td>
+    <td>Aokuewa</td>
+    <td>Lesson</td>
+    <td>Ha`awina</td>
+    <td>Letter</td>
+    <td>Leka</td>
+    <td>Leeward</td>
+    <td>Kona</td>
+    <td>Listen</td>
+    <td>Ho`olohe</td>
+    <td>Lover</td>
+    <td>Ipo</td>
+    <td>Macron</td>
+    <td>Kahak<u>o</u></td>
+    <td>Man</td>
+    <td>K<u>a</u>ne</td>
+    <td>Many</td>
+    <td>Mau</td>
+    <td>March <font size="1">(month)</font></td>
+    <td>Malaki</td>
+    <td>Marlin</td>
+    <td>A`u</td>
+    <td>May <font size="1">(month)</font></td>
+    <td>Mei</td>
+    <td>Midnight</td>
+    <td>Aumoe</td>
+    <td>Minute</td>
+    <td>Minuke</td>
+    <td>Monday</td>
+    <td>P<u>o</u>`akahi</td>
+    <td>Month</td>
+    <td>Mahina</td>
+    <td>Moon</td>
+    <td>Mahina</td>
+    <td>Moral</td>
+    <td>Pono</td>
+    <td>Morning</td>
+    <td>Kakahiaka</td>
+    <td>Mother</td>
+    <td>Makuahine</td>
+    <td>Mulberry tree</td>
+    <td>Wauke</td>
+    <td>My</td>
+    <td>Ko`u</td>
+    <td>Name</td>
+    <td>Inoa</td>
+    <td>Night</td>
+    <td>P<u>o</u></td>
+    <td>No</td>
+    <td>`A`ole</td>
+    <td>Noon</td>
+    <td>Awakea</td>
+    <td>North</td>
+    <td><u>A</u>kau</td>
+    <td>November</td>
+    <td>Nowemapa</td>
+    <td>Number</td>
+    <td>Helu</td>
+    <td>Observe</td>
+    <td>Nan<u>a</u></td>
+    <td>Ocean</td>
+    <td>Kai, moana</td>
+    <td>Ocean-side</td>
+    <td>Ma kai</td>
+    <td>Octopus</td>
+    <td>He`e</td>
+    <td>October</td>
+    <td>`Okakopa</td>
+    <td>Organization</td>
+    <td>Hui</td>
+    <td>Owl</td>
+    <td>Pueo</td>
+    <td>Pandanus tree</td>
+    <td>Hala</td>
+    <td>Parent</td>
+    <td>Makua</td>
+    <td>Picture</td>
+    <td>Ki`i</td>
+    <td>Pig</td>
+    <td>Pua`a</td>
+    <td>Pineapple</td>
+    <td>Hala-kahiki</td>
+    <td>Please</td>
+    <td>`Olu`olu, E `olu`olu `oe</td>
+    <td>Porch, patio</td>
+    <td>Lanai</td>
+    <td>Prayer</td>
+    <td>Pule</td>
+    <td>Pregnant</td>
+    <td>Hapai</td>
+    <td>Preserve <font size="1">(to preserve, care for)</font></td>
+    <td>M<u>a</u>lama</td>
+    <td><font size="3">Problems</font></td>
+    <td>Pilikia</td>
+    <td><font size="3">Purchase</font></td>
+    <td>Ku`ai</td>
+    <td>Question</td>
+    <td>Ninau</td>
+    <td>Quick, fast</td>
+    <td>Wiki</td>
+    <td>Rain</td>
+    <td>Ua</td>
+    <td>Rat</td>
+    <td>`Iole</td>
+    <td>Real, true</td>
+    <td>Maoli</td>
+    <td>Relative</td>
+    <td>`Ohana</td>
+    <td>Rest</td>
+    <td>Moe</td>
+    <td>Rock</td>
+    <td>P<u>o</u>haku</td>
+    <td>Royalty</td>
+    <td>Ali`i</td>
+    <td>Saturday</td>
+    <td>P<u>o</u>`aono</td>
+    <td>School</td>
+    <td>H<u>a</u>lau, kula</td>
+    <td>Second <font size="1">(fraction of a minute)</font></td>
+    <td>Kekona</td>
+    <td>September </td>
+    <td>Kepakemapa</td>
+    <td>Shark</td>
+    <td>Man<u>o</u></td>
+    <td>Shrimp</td>
+    <td>`<u>O</u>pae</td>
+    <td>Sick</td>
+    <td>Ma`i</td>
+    <td>Silence</td>
+    <td>Mu</td>
+    <td>Sing</td>
+    <td>Himeni</td>
+    <td>Sister</td>
+    <td>Kaikuahine</td>
+    <td>Sky</td>
+    <td>Wakea</td>
+    <td>Sleep</td>
+    <td>Moe moe</td>
+    <td>Smart</td>
+    <td>Akamai</td>
+    <td>Son</td>
+    <td>Keiki k<u>a</u>ne</td>
+    <td>South</td>
+    <td>Hema</td>
+    <td>Speak</td>
+    <td>`<u>O</u>lelo</td>
+    <td>Spring <font size="1">(season)</font></td>
+    <td>Kupulau</td>
+    <td>Stream</td>
+    <td>Kahawai</td>
+    <td>Sugar cane</td>
+    <td>K<u>o</u></td>
+    <td>Summer</td>
+    <td>Kau wela</td>
+    <td>Sunday</td>
+    <td>L<u>a</u>pule</td>
+    <td>Swordfish</td>
+    <td>A`u</td>
+    <td>Taro</td>
+    <td>Kalo</td>
+    <td>Teacher</td>
+    <td>Kumu</td>
+    <td>Thank you</td>
+    <td>Mahalo</td>
+    <td>The <small>(Plural)</small></td>
+    <td>Na</td>
+    <td>The <small>(Singular)</small></td>
+    <td>Ka</td>
+    <td>There</td>
+    <td>Aia</td>
+    <td>Thursday</td>
+    <td>P<u>o</u>`aha</td>
+    <td>Today</td>
+    <td>K<u>e</u>ia l<u>a</u></td>
+    <td>Tomorrow</td>
+    <td>K<u>e</u>l<u>a</u> 'ap<u>o</u>p<u>o</u></td>
+    <td>Trouble</td>
+    <td>Pilikia</td>
+    <td>Tuesday</td>
+    <td>P<u>o</u>`alua</td>
+    <td>Turtle</td>
+    <td>Honu</td>
+    <td>Uncle</td>
+    <td>`Anakala</td>
+    <td>Visitor</td>
+    <td>Malihini</td>
+    <td>Warrior</td>
+    <td>Kekoa</td>
+    <td>Wednesday</td>
+    <td>P<u>o</u>`akolu</td>
+    <td>Week</td>
+    <td>Hepekoma, pule</td>
+    <td>Weekday</td>
+    <td>L<u>a</u> noa</td>
+    <td>West</td>
+    <td>Komohana</td>
+    <td>Whale</td>
+    <td>Kohol<u>a</u></td>
+    <td>Where?</td>
+    <td>Aia i hea?</td>
+    <td>Who</td>
+    <td>`O wai</td>
+    <td>Wife</td>
+    <td>Pilialo</td>
+    <td>Wind</td>
+    <td>Makani</td>
+    <td>Window</td>
+    <td>Puka aniani</td>
+    <td>Windward</td>
+    <td>Ko`olau</td>
+    <td>Winter</td>
+    <td>Ho`oilo</td>
+    <td>Woman</td>
+    <td>Wahine</td>
+    <td>Work</td>
+    <td>Hana</td>
+    <td>Year</td>
+    <td>Makahiki</td>
+    <td>Yes</td>
+    <td>`Ae</td>
+    <td>Yesterday</td>
+    <td>I nehinei</td>
+    <td>You <small>(Plural)</small></td>
+    <td>Oukou</td>
+    <td>You <small>(Singular)</small></td>
+    <td>Oe</td>
+    <td>Your</td>
+    <td>Kou</td>
